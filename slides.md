@@ -16,15 +16,17 @@ layout: two-cols
 
 <div style="font-size: 0.7em;">
 
-**数学的表記**
+**一般の数学表記**
 
 * 実数空間：$\mathbb{R}$
 * 自然数の集合（0を含まない）：$\mathbb{N}$
 * 集合$\mathcal{S}$上の確率分布の集合：$\Delta(\mathcal{S})$
-* $f: \mathcal{X} \to \mathcal{Y}$は集合$\mathcal{X}$から集合$\mathcal{Y}$への写像（関数）．
-* $a \triangleq b$は$a$を$b$で定義することを表す．
-* $x \in \mathbb{R}^d$に対して，$\|x\|_\infty = \max_{1 \leq i \leq d} |x_i|$は∞ノルム（最大値ノルム）．
-* $\|x\|_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$は2ノルム（ユークリッドノルム）．
+* $f: \mathcal{X} \to \mathcal{Y}$は集合$\mathcal{X}$から集合$\mathcal{Y}$への写像（関数）
+* $a \triangleq b$は$a$を$b$で定義することを表す
+* $x \in \mathbb{R}^d$に対して，$\|x\|_\infty = \max_{1 \leq i \leq d} |x_i|$は∞ノルム（最大値ノルム）
+* $\|x\|_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$は2ノルム（ユークリッドノルム）
+* $v, w \in \mathbb{R}^d$に対して，$v \leq w$は$v_i \leq w_i$を全ての$i$で満たすことを表す
+* $v \in \mathbb{R}^d$と$b \in \mathbb{R}$に対して，$v + b$は$b$を$v$の各成分に加えたベクトル
 
 **MDPの表記**
 
@@ -59,6 +61,7 @@ layout: two-cols
 * 期待値の略記：$\mathbb{E}^\pi_\mu\left[\cdots\right] = \mathbb{E}\left[\cdots \rvert s_h, a_h \sim \pi, s_1 \sim \mu\right]$
     * 初期状態分布$\mu$に依存しない場合は$\mathbb{E}^\pi[\cdots]$を使う．
 * $\pi$が時刻$h$で$s, a$を訪問する確率： $\mathbb{P}^\pi_\mu(s_h=s, a_h=a)$
+* 一様方策：全ての行動を等確率$\frac{1}{|\mathcal{A}|}$で選ぶ方策．
 
 
 </div>
