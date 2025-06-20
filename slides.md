@@ -8,13 +8,98 @@ lineNumbers: true
 colorSchema: light
 ---
 
-# 強化学習講義 第N回
-
-[サブタイトル]
-
-<!--
-ほげほげ
--->
+# 用語・表記
 
 ---
+layout: two-cols
+---
+
+<div style="font-size: 0.7em;">
+
+**数学的表記**
+
+* 実数空間：$\mathbb{R}$
+* 自然数の集合（0を含まない）：$\mathbb{N}$
+* 集合$\mathcal{S}$上の確率分布の集合：$\Delta(\mathcal{S})$
+* $f: \mathcal{X} \to \mathcal{Y}$は集合$\mathcal{X}$から集合$\mathcal{Y}$への写像（関数）．
+* $a \triangleq b$は$a$を$b$で定義することを表す．
+* $x \in \mathbb{R}^d$に対して，$\|x\|_\infty = \max_{1 \leq i \leq d} |x_i|$は∞ノルム（最大値ノルム）．
+* $\|x\|_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$は2ノルム（ユークリッドノルム）．
+
+**MDPの表記**
+
+* MDPの定義：$(\mathcal{S}, \mathcal{A}, P, r, \mu)$
+  * 状態集合：$\mathcal{S}$
+  * 行動集合：$\mathcal{A}$
+  * 遷移確率関数：$P: \mathcal{S} \times \mathcal{A} \to \Delta(\mathcal{S})$
+  * 報酬関数：$r: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$
+  * 初期状態分布：$\mu \in \Delta(\mathcal{S})$
+* ホライゾン：$H \in \mathbb{N}$
+* 割引率：$\gamma \in [0, 1)$
+</div>
+
+::right::
+
+<div style="font-size: 0.7em;">
+
+**方策などの表記**
+
+* 方策の集合の種類：
+  * 決定的マルコフ定常方策：$\Pi^{\text{MSD}}$
+  * 確率的マルコフ定常方策：$\Pi^{\text{MS}}$
+    * 特に断りがない限り，$\Pi$は$\Pi^{\text{MS}}$を表す．
+  * 決定的マルコフ非定常方策：$\Pi^{\text{MD}}$
+  * 確率的マルコフ非定常方策：$\Pi^{\text{M}}$
+  * 決定的履歴依存方策：$\Pi^{\text{HD}}$
+  * 確率的履歴依存方策：$\Pi^{\text{H}}$
+* 方策：$\pi \in \Pi$
+* 時刻$t$までにありえる履歴の集合：$\mathcal{H}_t=(\mathcal{S}\times \mathcal{A})^t$
+* 有限ホライゾン期待収益関数：$\operatorname{Ret}_H: \Pi \to \mathbb{R}$
+* 割引期待収益関数：$\operatorname{Ret}_\gamma: \Pi \to \mathbb{R}$
+* 期待値の略記：$\mathbb{E}^\pi_\mu\left[\cdots\right] = \mathbb{E}\left[\cdots \rvert s_h, a_h \sim \pi, s_1 \sim \mu\right]$
+    * 初期状態分布$\mu$に依存しない場合は$\mathbb{E}^\pi[\cdots]$を使う．
+* $\pi$が時刻$h$で$s, a$を訪問する確率： $\mathbb{P}^\pi_\mu(s_h=s, a_h=a)$
+
+
+</div>
+
+---
+layout: two-cols
+---
+
+<div style="font-size: 0.7em;">
+
+**ベルマン方程式・作用素など**
+
+* 方策$\pi$の状態価値関数：$V^\pi_\gamma: \mathcal{S} \to \mathbb{R}$
+    * 方策で正規化した報酬関数：$r_\pi(s)=\sum_{a \in \mathcal{A}} \pi(a \mid s) r(s, a)$
+    * 方策で正規化した繊維関数：$P_\pi\left(s^{\prime} \mid s\right)=\sum_{a \in \mathcal{A}} \pi(a \mid s) P\left(s^{\prime} \mid s, a\right)$
+    * ベルマン方程式：$V^\pi_\gamma = r_\pi + \gamma P_\pi V^\pi_\gamma$
+    * ベルマン作用素：$B_\pi(v) \triangleq r_\pi + \gamma P_\pi v$
+* 占有率：$d^\pi_\mu = \mu^{\top}\left(I-\gamma P_\pi\right)^{-1}$
+* 方策$\pi$の行動価値関数：$Q^\pi_\gamma: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$
+    * 方策をかけた遷移関数：$\bar{P}_\pi\left(s^{\prime}, a^{\prime} \mid s, a\right)=\pi\left(a^{\prime} \mid s^{\prime}\right) P\left(s^{\prime} \mid s, a\right)$
+    * 行動価値関数のベルマン方程式：$Q_\gamma^\pi=r+\gamma \bar{P}_\pi Q_\gamma^\pi$
+    * 行動価値関数のベルマン作用素：$T_\pi(q) \triangleq r+\gamma \bar{P}_\pi q$
+
+</div>
+
+::right::
+
+<div style="font-size: 0.7em;">
+
+**最適ベルマン方程式・作用素など**
+
+* 最適状態価値関数：$V^\star_\gamma: \mathcal{S} \to \mathbb{R}$
+    * 最適ベルマン方程式：$\forall s \in \mathcal{S}$で，\
+    $V^\star_\gamma(s) = \max_{a \in \mathcal{A}}\left(r(s, a) + \gamma \sum_{s' \in \mathcal{S}} P(s' \rvert s, a) V^\star_\gamma(s')\right)$
+    * 最適ベルマン作用素：$\forall s \in \mathcal{S}$で，\
+    $(B_\star (v))(s) \triangleq \max_{a\in \mathcal{A}} \left( r(s, a) + \gamma \sum_{s' \in \mathcal{S} }P(s' \rvert s, a) v(s')\right)$
+* 最適行動価値関数：$Q^\star_\gamma: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$
+    * 行動価値関数のベルマン方程式：$\forall s, a \in \mathcal{S}\times \mathcal{A}$で，\
+    $Q^\star_\gamma(s, a) = r(s, a) + \gamma \sum_{s' \in \mathcal{S}} P(s' \rvert s, a) \max_{a' \in \mathcal{A}} Q^\star_\gamma(s', a')$
+    * 行動価値関数のベルマン作用素：$\forall s, a \in \mathcal{S}\times \mathcal{A}$で，\
+    $(T_\star(q))(s, a) \triangleq r(s, a) + \gamma \sum_{s' \in \mathcal{S}} P(s' \rvert s, a) \max_{a' \in \mathcal{A}} q(s', a')$
+
+</div>
 
