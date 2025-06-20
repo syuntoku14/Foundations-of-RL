@@ -17,7 +17,7 @@ To start the slide show:
 
 [N]のところを回数に置き換えてください．
 
-- `pnpm build --base /Foundations-of-RL-[N] --out docs`
+- `pnpm build --base /Foundations-of-RL-Notation --out docs`
 
 ---
 
