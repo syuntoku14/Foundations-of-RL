@@ -26,7 +26,10 @@ layout: two-cols
 * $x \in \mathbb{R}^d$に対して，$\|x\|_\infty = \max_{1 \leq i \leq d} |x_i|$は∞ノルム（最大値ノルム）
 * $\|x\|_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$は2ノルム（ユークリッドノルム）
 * $v, w \in \mathbb{R}^d$に対して，$v \leq w$は$v_i \leq w_i$を全ての$i$で満たすことを表す
+* $v > w$は$v_i \leq w_i$を満たす$i$が存在することを表す
 * $v \in \mathbb{R}^d$と$b \in \mathbb{R}$に対して，$v + b$は$b$を$v$の各成分に加えたベクトル
+* $\boldsymbol{0} = (0, 0, \ldots, 0) \in \mathbb{R}^d$は要素が全て0のベクトル
+* $\boldsymbol{1} = (1, 1, \ldots, 1) \in \mathbb{R}^d$は要素が全て1のベクトル
 
 **MDPの表記**
 
