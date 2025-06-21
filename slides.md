@@ -26,10 +26,16 @@ layout: two-cols
 * $x \in \mathbb{R}^d$に対して，$\|x\|_\infty = \max_{1 \leq i \leq d} |x_i|$は∞ノルム（最大値ノルム）
 * $\|x\|_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$は2ノルム（ユークリッドノルム）
 * $v, w \in \mathbb{R}^d$に対して，$v \leq w$は$v_i \leq w_i$を全ての$i$で満たすことを表す
-* $v > w$は$v_i \leq w_i$を満たす$i$が存在することを表す
+* $v < w$は$v\leq w$ かつ $v_i < w_i$を満たす$i$が存在することを表す
 * $v \in \mathbb{R}^d$と$b \in \mathbb{R}$に対して，$v + b$は$b$を$v$の各成分に加えたベクトル
 * $\boldsymbol{0} = (0, 0, \ldots, 0) \in \mathbb{R}^d$は要素が全て0のベクトル
 * $\boldsymbol{1} = (1, 1, \ldots, 1) \in \mathbb{R}^d$は要素が全て1のベクトル
+
+</div>
+
+::right::
+
+<div style="font-size: 0.7em;">
 
 **MDPの表記**
 
@@ -41,9 +47,12 @@ layout: two-cols
   * 初期状態分布：$\mu \in \Delta(\mathcal{S})$
 * ホライゾン：$H \in \mathbb{N}$
 * 割引率：$\gamma \in [0, 1)$
+
 </div>
 
-::right::
+---
+layout: two-cols
+---
 
 <div style="font-size: 0.7em;">
 
@@ -66,31 +75,31 @@ layout: two-cols
 * $\pi$が時刻$h$で$s, a$を訪問する確率： $\mathbb{P}^\pi_\mu(s_h=s, a_h=a)$
 * 一様方策：全ての行動を等確率$\frac{1}{|\mathcal{A}|}$で選ぶ方策．
 
-
 </div>
 
----
-layout: two-cols
----
+::right::
 
 <div style="font-size: 0.7em;">
 
 **ベルマン方程式・作用素など**
 
 * 方策$\pi$の状態価値関数：$V^\pi_\gamma: \mathcal{S} \to \mathbb{R}$
-    * 方策で正規化した報酬関数：$r_\pi(s)=\sum_{a \in \mathcal{A}} \pi(a \mid s) r(s, a)$
-    * 方策で正規化した繊維関数：$P_\pi\left(s^{\prime} \mid s\right)=\sum_{a \in \mathcal{A}} \pi(a \mid s) P\left(s^{\prime} \mid s, a\right)$
+    * 方策で正規化した報酬関数：$r_\pi(s)=\sum_{a \in \mathcal{A}} \pi(a \rvert s) r(s, a)$
+    * 方策で正規化した繊維関数：$P_\pi\left(s^{\prime} \rvert s\right)=\sum_{a \in \mathcal{A}} \pi(a \rvert s) P\left(s^{\prime} \rvert s, a\right)$
     * ベルマン方程式：$V^\pi_\gamma = r_\pi + \gamma P_\pi V^\pi_\gamma$
     * ベルマン作用素：$B_\pi(v) \triangleq r_\pi + \gamma P_\pi v$
 * 占有率：$d^\pi_\mu = \mu^{\top}\left(I-\gamma P_\pi\right)^{-1}$
+* 拡張占有率：$\omega^\pi_\mu(s, a) = \pi(a \rvert s) d^\pi_\mu(s)$
 * 方策$\pi$の行動価値関数：$Q^\pi_\gamma: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$
-    * 方策をかけた遷移関数：$\bar{P}_\pi\left(s^{\prime}, a^{\prime} \mid s, a\right)=\pi\left(a^{\prime} \mid s^{\prime}\right) P\left(s^{\prime} \mid s, a\right)$
+    * 方策をかけた遷移関数：$\bar{P}_\pi\left(s^{\prime}, a^{\prime} \rvert s, a\right)=\pi\left(a^{\prime} \rvert s^{\prime}\right) P\left(s^{\prime} \rvert s, a\right)$
     * 行動価値関数のベルマン方程式：$Q_\gamma^\pi=r+\gamma \bar{P}_\pi Q_\gamma^\pi$
     * 行動価値関数のベルマン作用素：$T_\pi(q) \triangleq r+\gamma \bar{P}_\pi q$
 
 </div>
 
-::right::
+---
+layout: two-cols
+---
 
 <div style="font-size: 0.7em;">
 
@@ -108,4 +117,3 @@ layout: two-cols
     $(T_\star(q))(s, a) \triangleq r(s, a) + \gamma \sum_{s' \in \mathcal{S}} P(s' \rvert s, a) \max_{a' \in \mathcal{A}} q(s', a')$
 
 </div>
-
