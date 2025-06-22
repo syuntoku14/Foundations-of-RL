@@ -15,9 +15,7 @@ To start the slide show:
 
 ## Github Pagesにビルド
 
-[N]のところを回数に置き換えてください．
-
-- `pnpm build --base /Foundations-of-RL-Notation --out docs`
+- `pnpm build --base /Foundations-of-RL --out docs`
 
 ---
 
