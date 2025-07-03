@@ -66,6 +66,7 @@ layout: two-cols
 [**第四回**](https://syuntoku14.github.io/Foundations-of-RL-4)：プランニングアルゴリズムその２
 * 方策勾配法（直接パラメタ法）
 * 方策勾配法（softmax方策）
+* 方策反復法
 
 </div>
 
@@ -98,6 +99,7 @@ layout: two-cols
 * $\|x\|_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$は2ノルム（ユークリッドノルム）
 * $v, w \in \mathbb{R}^d$に対して，$v \leq w$は$v_i \leq w_i$を全ての$i$で満たすことを表す
 * $v < w$は$v\leq w$ かつ $v_i < w_i$を満たす$i$が存在することを表す
+* $x, y \in \mathbb{R}^d$について，$x \propto y$は$x = c y$を満たすスカラー$c > 0$が存在することを意味する．
 * $v \in \mathbb{R}^d$と$b \in \mathbb{R}$に対して，$v + b$は$b$を$v$の各成分に加えたベクトル
 * $\boldsymbol{0} = (0, 0, \ldots, 0) \in \mathbb{R}^d$は要素が全て0のベクトル
 * $\boldsymbol{1} = (1, 1, \ldots, 1) \in \mathbb{R}^d$は要素が全て1のベクトル
@@ -145,6 +147,7 @@ layout: two-cols
     * 初期状態分布$\mu$に依存しない場合は$\mathbb{E}^\pi[\cdots]$を使う．
 * $\pi$が時刻$h$で$s, a$を訪問する確率： $\mathbb{P}^\pi_\mu(s_h=s, a_h=a)$
 * 一様方策：全ての行動を等確率$\frac{1}{|\mathcal{A}|}$で選ぶ方策．
+* 貪欲方策：与えられた$Q$関数$q: \mathcal{S}\times \mathcal{A} \to \mathbb{R}$に対して，「各状態$s$で$\arg\max_a q(s, a)$を選択する方策」
 
 </div>
 
