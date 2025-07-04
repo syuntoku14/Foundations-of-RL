@@ -2,6 +2,7 @@
 
 * メインページに情報をまとめてあります（各講義へのリンクなど）：https://syuntoku14.github.io/Foundations-of-RL
 * 各講義のGithubリポジトリはPrivateにしてあります．もし誤字や誤りを見かけた方は，https://github.com/syuntoku14/Foundations-of-RL/issues に報告してください．
+* 講義スライドのテンプレートリポジトリ：https://github.com/syuntoku14/Foundations-of-RL-Template
 
 ## コンパイル周りの補足
 
