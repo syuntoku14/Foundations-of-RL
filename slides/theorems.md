@@ -12,7 +12,7 @@ colorSchema: light
 
 ---
 
-## マルコフ方策の最適性など
+## [**講義第一回**](https://syuntoku14.github.io/Foundations-of-RL-1)
 
 <br>
 
@@ -46,67 +46,8 @@ $$
 </div>
 
 ---
-hideInToc: true
----
 
-<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
-
-**命題（任意の初期状態行動でのマルコフ方策の最適性）**<sup>1</sup>：
-
-次を満たす$V^\star: \mathcal{S} \to \mathbb{R}$と$Q^\star: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$を定義しよう．
-$$
-V^\star_\gamma(s) = \max_{\pi \in \Pi^{\text{H}}} V^\pi_\gamma(s), \quad Q^\star_\gamma(s, a) = \max_{\pi \in \Pi^{\text{H}}} Q^\pi_\gamma(s, a)
-$$
-
-この$V^\star_\gamma$と$Q^\star_\gamma$を，それぞれ**最適状態価値関数**と**最適行動価値関数**と呼ぶ．
-
-このとき，次を満たす決定的なマルコフ定常方策$\pi^\star \in \Pi^{\text{MSD}}$が存在する．
-
-$$
-V^{\pi^\star}_\gamma(s) = V^\star_\gamma(s), \quad Q^{\pi^\star}_\gamma(s, a) = Q^\star_\gamma(s, a) \quad \forall s \in \mathcal{S}, a \in \mathcal{A}
-$$
-
-</div>
-
-<div style="font-size: 0.7em; text-align: left; position: absolute; bottom: 5px; left: 20px;">
-
-[1] [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)の定理1.7など
-
-</div>
-
-
-
----
-hideInToc: true
----
-
-<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
-
-**補題（状態行動訪問確率とマルコフ方策の十分性）**<sup>1</sup>：
-
-任意の履歴依存方策$\pi^{\text{H}} \in \Pi^{\text{H}}$に対して，次を満たす確率的マルコフ非定常方策$\pi^{\text{M}} \in \Pi^{\text{M}}$が存在する
-
-$$
-\mathbb{P}^{\pi^{\text{H}}}_\mu(s_h = s, a_h = a) = \mathbb{P}^{\pi^{\text{M}}}_\mu(s_h = s, a_h = a) \quad \forall (h, s, a) \in \mathbb{N} \times \mathcal{S} \times \mathcal{A} 
-\tag{1}
-$$
-
-$\mathbb{P}^\pi_\mu(s_h=s, a_h=a)$は，$\pi$が時刻$h$で$s, a$を訪問する確率を表す．\
-
-</div>
-
-<div style="font-size: 0.7em; text-align: left; position: absolute; bottom: 5px; left: 20px;">
-
-[1] [強化学習（森村哲郎）](https://amzn.asia/d/7giaejg)の命題1.1など
-
-</div>
-
-
-
-
----
-
-## 価値関数の性質など
+## [**講義第二回**](https://syuntoku14.github.io/Foundations-of-RL-2)
 
 <br>
 
@@ -179,6 +120,69 @@ $T_\pi^k$を，$T_\pi$を繰り返し$k$回適用した作用素とする．\
 </div>
 
 ---
+
+## [**講義第三回**](https://syuntoku14.github.io/Foundations-of-RL-3)
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**命題（任意の初期状態行動でのマルコフ方策の最適性）**<sup>1</sup>：
+
+次を満たす$V^\star: \mathcal{S} \to \mathbb{R}$と$Q^\star: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$を定義しよう．
+$$
+V^\star_\gamma(s) = \max_{\pi \in \Pi^{\text{H}}} V^\pi_\gamma(s), \quad Q^\star_\gamma(s, a) = \max_{\pi \in \Pi^{\text{H}}} Q^\pi_\gamma(s, a)
+$$
+
+この$V^\star_\gamma$と$Q^\star_\gamma$を，それぞれ**最適状態価値関数**と**最適行動価値関数**と呼ぶ．
+
+このとき，次を満たす決定的なマルコフ定常方策$\pi^\star \in \Pi^{\text{MSD}}$が存在する．
+
+$$
+V^{\pi^\star}_\gamma(s) = V^\star_\gamma(s), \quad Q^{\pi^\star}_\gamma(s, a) = Q^\star_\gamma(s, a) \quad \forall s \in \mathcal{S}, a \in \mathcal{A}
+$$
+
+</div>
+
+<div style="font-size: 0.7em; text-align: left; position: absolute; bottom: 5px; left: 20px;">
+
+[1] [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)の定理1.7など
+
+</div>
+
+
+
+---
+hideInToc: true
+---
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**補題（状態行動訪問確率とマルコフ方策の十分性）**<sup>1</sup>：
+
+任意の履歴依存方策$\pi^{\text{H}} \in \Pi^{\text{H}}$に対して，次を満たす確率的マルコフ非定常方策$\pi^{\text{M}} \in \Pi^{\text{M}}$が存在する
+
+$$
+\mathbb{P}^{\pi^{\text{H}}}_\mu(s_h = s, a_h = a) = \mathbb{P}^{\pi^{\text{M}}}_\mu(s_h = s, a_h = a) \quad \forall (h, s, a) \in \mathbb{N} \times \mathcal{S} \times \mathcal{A} 
+\tag{1}
+$$
+
+$\mathbb{P}^\pi_\mu(s_h=s, a_h=a)$は，$\pi$が時刻$h$で$s, a$を訪問する確率を表す．
+
+</div>
+
+<div style="font-size: 0.7em; text-align: left; position: absolute; bottom: 5px; left: 20px;">
+
+[1] [強化学習（森村哲郎）](https://amzn.asia/d/7giaejg)の命題1.1など
+
+</div>
+
+
+
+
+---
+
+
 
 <div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
 
@@ -283,6 +287,7 @@ $$
 
 </div>
 
-
-
 ---
+
+## [**講義第四回**](https://syuntoku14.github.io/Foundations-of-RL-4)
+
