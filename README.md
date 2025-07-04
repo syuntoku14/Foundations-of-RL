@@ -1,9 +1,7 @@
-# 第N回
+# 強化学習講義資料 （工事中）
 
-1. [ ] 説明する内容
-2. [ ] ...
-
----
+* メインページに情報をまとめてあります（各講義へのリンクなど）：https://syuntoku14.github.io/Foundations-of-RL
+* 各講義のGithubリポジトリはPrivateにしてあります．もし誤字や誤りを見かけた方は，https://github.com/syuntoku14/Foundations-of-RL/issues に報告してください．
 
 ## コンパイル周りの補足
 
@@ -16,8 +14,6 @@ To start the slide show:
 ## Github Pagesにビルド
 
 - `pnpm build --base /Foundations-of-RL --out docs`
-
----
 
 ## その他注意
 
