@@ -12,7 +12,7 @@ colorSchema: light
 
 ---
 
-## [**講義第一回**](https://syuntoku14.github.io/Foundations-of-RL-1)
+## [講義第一回](https://syuntoku14.github.io/Foundations-of-RL-1)
 
 <br>
 
@@ -47,7 +47,7 @@ $$
 
 ---
 
-## [**講義第二回**](https://syuntoku14.github.io/Foundations-of-RL-2)
+## [講義第二回](https://syuntoku14.github.io/Foundations-of-RL-2)
 
 <br>
 
@@ -121,7 +121,7 @@ $T_\pi^k$を，$T_\pi$を繰り返し$k$回適用した作用素とする．\
 
 ---
 
-## [**講義第三回**](https://syuntoku14.github.io/Foundations-of-RL-3)
+## [講義第三回](https://syuntoku14.github.io/Foundations-of-RL-3)
 
 <br>
 
@@ -289,5 +289,92 @@ $$
 
 ---
 
-## [**講義第四回**](https://syuntoku14.github.io/Foundations-of-RL-4)
+## [講義第四回](https://syuntoku14.github.io/Foundations-of-RL-4)
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**方策勾配定理** テーブルMDPにおいて，収益の方策についての勾配$\nabla_\pi \operatorname{Ret}_\gamma(\pi) \in \mathbb{R}^{|\mathcal{S}|\times |\mathcal{A}|}$は次を満たす：
+$$
+\left(\nabla_\pi \operatorname{Ret}_\gamma(\pi)\right)(s, a) = d^\pi_\mu(s) Q^\pi_\gamma(s, a)
+$$
+
+</div>
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 0px; padding-left: 10px; margin-top: 0px; background-color: rgb(220, 241, 255);">
+
+**方策勾配定理 (Softmax):** Softmax方策の勾配$\nabla_\theta \operatorname{Ret}_\gamma(\pi_\theta) \in \mathbb{R}^{|\mathcal{S}|\times |\mathcal{A}|}$は次を満たす：
+$$
+\left(\nabla_\theta \operatorname{Ret}_\gamma(\pi_\theta)\right)(s, a) = 
+d^\pi_\mu(s) 
+\pi_\theta(a \rvert s)
+\left(
+Q^{\pi_\theta}_\gamma(s, a) 
+- V^{\pi_\theta}_\gamma(s) 
+\right)
+$$
+
+</div>
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**MDPの非凹性**<sup>1</sup>： 直接パラメタ法とSoftmax方策の両方について，\
+$\operatorname{Ret}_\gamma(\pi)$が，方策$\pi$について凹ではないMDPが存在する．
+
+</div>
+
+---
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**収益差分補題**<sup>2</sup>：
+任意の方策$\pi$と$\pi'$に対して，次が成り立つ：
+
+$$
+\operatorname{Ret}_\gamma(\pi) - \operatorname{Ret}_\gamma(\pi') = 
+\frac{1}{1-\gamma}\sum_{s \in \mathcal{S}} d^\pi_\mu(s) \sum_{a \in \mathcal{A}} \pi(a \rvert s) A^{\pi'}_\gamma(s, a)
+$$
+
+</div>
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**停留点の最適性**<sup>1</sup>：任意の方策$\pi$について，次が成立する
+
+$$
+\operatorname{Ret}_\gamma(\pi^\star) - \operatorname{Ret}_\gamma(\pi) \leq \frac{1}{(1-\gamma) \min_s \mu(s)} \max_{\pi' \in \Pi} \left(\pi' - \pi\right)^\top \nabla_\pi \operatorname{Ret}_\gamma(\pi)
+$$
+
+👨‍🏫 もし$\pi$が停留点（$\nabla_\pi \operatorname{Ret}_\gamma(\pi) = \boldsymbol{0}$）ならば，$\operatorname{Ret}_\gamma(\pi^\star) = \operatorname{Ret}_\gamma(\pi)$が成り立ち，$\pi$は最適方策
+
+</div>
+
+<br>
+
+---
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**方策改善の単調性**<sup>1</sup>
+マルコフ定常方策$\pi \in \Pi$について，$\pi'$を$Q^\pi_\gamma$の貪欲方策とする：
+$$
+\pi'(s) \triangleq \arg\max_{a \in \mathcal{A}} Q^\pi_\gamma(s, a) \quad \forall s \in \mathcal{S}
+$$
+
+このとき，次の３つが成立する： 
+
+1. $V^\pi_\gamma \leq B_\star (V^\pi_\gamma) \leq V^{\pi'}_\gamma$
+2. $V^\pi_\gamma \neq V^\star_\gamma$ならば，$V^\pi_\gamma < V^{\pi'}_\gamma$
+    * つまり，$Q^\pi_\gamma$の貪欲方策を取れば，状態価値関数が必ず改善される．
+3. $V^\pi_\gamma = V^{\star}_\gamma$ならば，$V^{\pi}_\gamma = V^{\pi'}_\gamma$
+    * つまり，すでに$\pi$が最適方策ならば，$\pi'$も最適方策になる．
+
+</div>
 
