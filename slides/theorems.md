@@ -378,3 +378,107 @@ $$
 
 </div>
 
+---
+
+## [講義第五回](https://syuntoku14.github.io/Foundations-of-RL-5)
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**命題（近似した行動価値関数の性能保証）**
+２つのMDP $M \triangleq (\mathcal{S}, \mathcal{A}, P, r)$と$\widehat{M} \triangleq (\mathcal{S}, \mathcal{A}, \widehat{P}, r)$に対して，最適価値関数をそれぞれ$Q^\star_\gamma, V^\star_\gamma$と$\widehat{Q}^\star_\gamma, \widehat{V}^\star_\gamma$とする．このとき，次が成り立つ：
+
+$$
+\|Q^\star_\gamma - \widehat{Q}^\star_\gamma\|_\infty \leq \frac{\gamma}{1-\gamma}\| (P - \widehat{P}) V^\star_\gamma\|_\infty
+$$
+
+👨‍🏫 つまり，$P \approx \widehat{P}$ならば，右辺がほぼ$0$になって，$Q^\star_\gamma \approx \widehat{Q}^\star_\gamma$が言えるよ．
+
+</div>
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**シミュレーション補題**<sup>1</sup>： ２つのMDP $(\mathcal{S}, \mathcal{A}, P, r)$と$(\mathcal{S}, \mathcal{A}, \widehat{P}, r)$に対して，方策$\pi \in \Pi$の行動価値関数をそれぞれ$Q^\pi_\gamma$と$\widehat{Q}^\pi_\gamma$とする．
+このとき，次が成り立つ：<sup>2</sup>
+
+$$
+Q^\pi_\gamma - \widehat{Q}^\pi_\gamma = \gamma(I - \gamma \widehat{\bar{P}}_\pi)^{-1} (P - \widehat{P}) V^\pi_\gamma
+$$
+
+</div>
+
+---
+hideInToc: true
+---
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**$Q^\star$と$\widehat{Q}^\star$の差**： ２つのMDP $M \triangleq (\mathcal{S}, \mathcal{A}, P, r)$と$\widehat{M} \triangleq (\mathcal{S}, \mathcal{A}, \widehat{P}, r)$に対して，最適価値関数をそれぞれ$Q^\star_\gamma, V^\star_\gamma$と$\widehat{Q}^\star_\gamma, \widehat{V}^\star_\gamma$とする．また，それぞれの最適方策を$\pi^\star$と$\widehat{\pi}^\star$とする．
+このとき，次が成り立つ：
+
+$$
+\begin{aligned}
+Q^{\star}_\gamma-\widehat{Q}^{\star}_\gamma & \leq \gamma\left(I-\gamma \widehat{\bar{P}}_{\pi^{\star}}\right)^{-1}(P-\widehat{P}) V^{\star}_\gamma \\
+Q^{\star}_\gamma-\widehat{Q}^{\star}_\gamma & \geq \gamma\left(I-\gamma \widehat{\bar{P}}_{\widehat{\pi}^{\star}}\right)^{-1}(P-\widehat{P}) V^{\star}_\gamma
+\end{aligned}
+$$
+
+</div>
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**$(I-\gamma \bar{P}_\pi)^{-1} v$のバウンド**： 任意の$v \in \mathbb{R}^{|\mathcal{S}|}$と$\pi$について，
+$\| (I - \gamma \bar{P}_\pi)^{-1} v \|_\infty \leq \frac{1}{1 - \gamma} \|v\|_\infty$．
+
+</div> 
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**命題（Q関数の誤差増幅）** 任意の関数 $Q \in \R^{|\mathcal{S}|\times |\mathcal{A}|}$について，その貪欲方策を$\pi_Q$とすると，次が成立：
+
+$$
+V^{\pi_Q}_\gamma \geq V^\star_\gamma - \frac{2\|Q - Q^\star_\gamma\|_\infty}{1 - \gamma} \boldsymbol{1}
+$$
+
+</div>
+
+---
+hideInToc: true
+---
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**Hoeffdingの不等式**<sup>1</sup>：確率変数$X_1, X_2, \ldots, X_N$が独立かつ有界で，その値が$a \leq X_i \leq b$で収まっているとする．
+このとき，$\mu_n = \frac{1}{N} \sum^{N}_{i=1} X_i$について，
+
+$$
+\mathbb{P}\left(|\mu_N - \mathbb{E}[\mu_N]| > \epsilon\right) \leq 2\exp\left(-\frac{ 2 N \epsilon^2}{(b - a)^2}\right) 
+$$
+
+変形すると，確率$1-\delta$以上で次が成り立つ：
+
+$$
+|\mu_N - \mathbb{E}[\mu_N]| \leq \sqrt{\frac{(b - a)^2}{2 N} \log\left(\frac{2}{\delta}\right)}
+$$
+
+</div>
+
+<br>
+
+<div style="border: 2px solid #000; padding-top: 1px; padding-left: 10px; margin-top: 5px; background-color: rgb(220, 241, 255);">
+
+**Union Bound**<sup>1</sup>：事象$A_1, A_2, \ldots, A_n$に対して，次が成り立つ：
+
+$$
+\mathbb{P}\left(A_1 \cup A_2 \cup \ldots \cup A_n\right) \leq \mathbb{P}(A_1) + \mathbb{P}(A_2) + \ldots + \mathbb{P}(A_n)
+$$
+
+</div>
+
