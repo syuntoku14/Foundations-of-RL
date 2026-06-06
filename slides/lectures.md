@@ -29,12 +29,9 @@ https://syuntoku14.github.io/Foundations-of-RL-2
 
 * テーブルMDP
 * 方策の評価方法（収益の計算方法）
-  * ベルマン方程式
-  * ベルマン作用素
+  * ベルマン方程式とベルマン作用素
   * 逆行列による方策評価
-  * 動的計画法による方策評価
   * 占有率による方策評価
-* 行動価値関数による方策評価
 
 </div>
 
@@ -47,7 +44,6 @@ https://syuntoku14.github.io/Foundations-of-RL-3
 
 * マルコフ方策の最適性の証明
 * 価値反復法による最適方策の計算
-* Q版の価値反復法
 * 線型計画法による最適方策の計算
 * 線型計画法の双対問題と占有率
 
@@ -60,12 +56,61 @@ https://syuntoku14.github.io/Foundations-of-RL-4
 * 方策勾配法（softmax方策）
 * 方策反復法
 
+</div>
+
+---
+hideInToc: true
+layout: two-cols
+---
+
+<div style="font-size: 0.7em;">
+
+**第五回**：確率論の道具と集中不等式\
+TODO: 
+
+* 中心極限定理
+* Hoeffdingの不等式
+* Union bound
+
  ---
 
-**第五回**：シミュレータがあるときの強化学習\
+**第六回**：シミュレータがあるときの強化学習\
 https://syuntoku14.github.io/Foundations-of-RL-5
 
 * モデルベース強化学習
 * モデルフリー強化学習
+
+ ---
+
+**第七回**：探索の基本とバンディット問題\
+TODO: 
+
+* バンディット問題の導入
+* 探索の評価方法
+* ε-貪欲アルゴリズム
+* UCBアルゴリズム
+
+</div>
+
+::right::
+
+<div style="font-size: 0.7em;">
+
+**第八回**：強化学習と探索\
+TODO: 
+
+* MDPでの探索の評価方法
+* UCB-VIアルゴリズム
+* UCB-VIのリグレット解析
+
+ ---
+
+**第九回**：線形バンディットと線形MDP\
+TODO: 
+
+* 線形バンディット問題
+* LinUCBアルゴリズム
+* 線形MDP問題
+* 線形MDPでのUCB-VIアルゴリズム
 
 </div>

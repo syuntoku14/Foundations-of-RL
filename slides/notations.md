@@ -89,7 +89,7 @@ layout: two-cols
 
 * 方策$\pi$の状態価値関数：$V^\pi_\gamma: \mathcal{S} \to \mathbb{R}$
     * 方策で正規化した報酬関数：$r_\pi(s)=\sum_{a \in \mathcal{A}} \pi(a \rvert s) r(s, a)$
-    * 方策で正規化した繊維関数：$P_\pi\left(s^{\prime} \rvert s\right)=\sum_{a \in \mathcal{A}} \pi(a \rvert s) P\left(s^{\prime} \rvert s, a\right)$
+    * 方策で正規化した遷移関数：$P_\pi\left(s^{\prime} \rvert s\right)=\sum_{a \in \mathcal{A}} \pi(a \rvert s) P\left(s^{\prime} \rvert s, a\right)$
     * ベルマン方程式：$V^\pi_\gamma = r_\pi + \gamma P_\pi V^\pi_\gamma$
     * ベルマン作用素：$B_\pi(v) \triangleq r_\pi + \gamma P_\pi v$
 * 占有率：$d^\pi_\mu = \mu^{\top}\left(I-\gamma P_\pi\right)^{-1}$
