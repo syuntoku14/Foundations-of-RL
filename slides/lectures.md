@@ -66,7 +66,7 @@ layout: two-cols
 <div style="font-size: 0.7em;">
 
 **第五回**：確率論の道具と集中不等式\
-TODO: 
+https://syuntoku14.github.io/Foundations-of-RL-5
 
 * 中心極限定理
 * Hoeffdingの不等式
@@ -75,7 +75,7 @@ TODO:
  ---
 
 **第六回**：シミュレータがあるときの強化学習\
-https://syuntoku14.github.io/Foundations-of-RL-5
+https://syuntoku14.github.io/Foundations-of-RL-6
 
 * モデルベース強化学習
 * モデルフリー強化学習
