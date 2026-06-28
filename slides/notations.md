@@ -31,6 +31,7 @@ layout: two-cols
 * $v \in \mathbb{R}^d$と$b \in \mathbb{R}$に対して，$v + b$は$b$を$v$の各成分に加えたベクトル
 * $\boldsymbol{0} = (0, 0, \ldots, 0) \in \mathbb{R}^d$は要素が全て0のベクトル
 * $\boldsymbol{1} = (1, 1, \ldots, 1) \in \mathbb{R}^d$は要素が全て1のベクトル
+* $\mathbb{I}[\text{condition}]$は条件が成立するとき1，そうでないとき0を返す指示関数
 
 </div>
 
