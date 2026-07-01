@@ -478,10 +478,6 @@ $$
 </div>
 
 
-
-
-
-
 ---
 
 ## [講義第六回](https://syuntoku14.github.io/Foundations-of-RL-6)
