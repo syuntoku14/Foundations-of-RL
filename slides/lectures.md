@@ -83,7 +83,7 @@ https://syuntoku14.github.io/Foundations-of-RL-6
  ---
 
 **第七回**：探索の基本とバンディット問題\
-TODO: 
+https://syuntoku14.github.io/Foundations-of-RL-7
 
 * バンディット問題の導入
 * 探索の評価方法
