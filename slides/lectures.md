@@ -97,7 +97,7 @@ https://syuntoku14.github.io/Foundations-of-RL-7
 <div style="font-size: 0.7em;">
 
 **第八回**：強化学習と探索\
-TODO: 
+https://syuntoku14.github.io/Foundations-of-RL-8
 
 * MDPでの探索の評価方法
 * UCB-VIアルゴリズム
