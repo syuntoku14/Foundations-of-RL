@@ -3,6 +3,7 @@ maxDepth: 1
 layout: default
 colorSchema: light
 hideInToc: true
+selectable: true
 ---
 
 ## 「強化学習基礎」のメインページ
